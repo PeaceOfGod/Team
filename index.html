@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams Management</title>
+    <link href="./index.css" type="text/css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3a4e42f67a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="team-list">
+        <button class="add-team" type="button" ><a href="./form.html" class="add-team">Add Team</a></button>        
+        <p class="manage">Team Management</p>
+        <table class="table" id="team-list">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-body" id="table-id">   
+                <td class="font-buttons" id="font-butt">
+                    <i class="fas fa-user-edit" style="font-size: 25px; padding-right: 20px" id="edit-button"></i>
+                    <i class="fas fa-trash" style="font-size: 25px;" id="delete-button"></i>                  
+                </td> 
+            </tbody>            
+        </table> 
+    </div>    
+</body>
+
+<script src="./index.js"></script>
+</html>

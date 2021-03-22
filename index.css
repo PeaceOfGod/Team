@@ -1,0 +1,71 @@
+.add-team {
+    display: block;    
+    color: white;
+    background-color: purple;    
+}
+
+html {
+    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+}
+  
+thead th {
+    font-family: 'Rock Salt', cursive;
+}
+  
+th {
+    letter-spacing: 2px;
+    padding: 15px;
+}
+
+td {
+    padding: 15px;
+    text-align: center;
+}
+    
+tbody th td {
+    text-align: center;
+}
+
+th {
+    background-color: purple;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table {
+    border: 3px solid purple;
+    width: 40%;
+}
+
+form {
+    width: 20%;
+    border: 3px solid purple; 
+    padding: 70px; 
+    margin: 250px;
+    align-items: center;
+}
+
+form .form-table .table {
+    display: table;    
+}
+
+div.form-table .table {
+    display: table-row;
+}
+
+label, input {
+    display: table-cell;
+    margin-bottom: 10px;
+}
+
+label {
+    padding-right: 10px;
+}
+
+#submit {
+    background-color: purple;
+    color: white;    
+}

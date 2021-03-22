@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./index.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <p><a href="./index.html">Team List</a></p>
+    <div class="form-div">
+        <form autocomplete="off" class="form-table" id="team" name="team">
+            <div class="form-table">
+                <title>User Form</title>
+                <label>Team name</label>
+                <input type="text" name="team-name" id="name" class="team-name">
+            </div>
+
+            <div class="form-table">
+                <label>Team Description</label>
+                <textarea type="text" name="desc" id="desc" class="team-desc"></textarea>
+            </div>
+
+            <button type="submit" onclick="createTeam(event)" id="submit">Submit</button>
+        </form>        
+    </div>    
+</body>
+<script>
+    // document.getElementById("submit").addEventListener("click", function(event){
+    //     event.preventDefault();
+    //     const name =  document.getElementById("name").value;
+    //     const description = document.getElementById("desc").value
+    //     console.log("name: "+ name + " Description: "+description);
+    // });
+    const TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5MmViNDEyZC01YWI5LTRhY2QtOWU1ZC01NDY3ODIyMmQ0N2EiLCJqdGkiOiI5Y2QxMzZlYTEzNzRlYzI1ZmU5NmFhZGRjMzgxMDYyMmUwY2RkMzEzYzNhY2I5MzU0N2FmODkyNGQxYjJmYTk4YTVlYjljYzJiM2RiZjczOSIsImlhdCI6IjE2MTU0MzUwNDEuOTcwNzA5IiwibmJmIjoiMTYxNTQzNTA0MS45NzA3MTQiLCJleHAiOiIxNjQ2OTcxMDQxLjk2MjU3NyIsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.TqSS_3i2JtF1AaMTJWrMyy4MnNfdV23mnAykXjOdkLwlOftWYPVf7zA5x1LYMp6PEqLRSDuLnUGCLXXqOVA2NxGouUVBffyyhhyKb6Rw8M8frNKzdUmLByKTKjna-Trz7SVMeV-ref5pVcj4IdngOYvwSq2ewgUxCkfCzCXSPiNYPruEc9Xy0Qi_X5XfL_vaYEKc1zTQq7SizTS1ntUZAZ49OR0pCN8IEEml64QknbM--OhfnUtwxZ8Er0i_hkYxp6hUKYrn5BBDgOD6RCsd6xV62jdzdU3D35HcplfMF-NQEg8MU3BsxEsxO8xkAIVbWrM4D7-dsRtPhPORLbPa9yQSv0FFoqIWuVKdh7d6qqcVVURlOR74p6q7QbKhwwjovxizo0Pbivmig6cQGRcx9mFoQA4s4KYFed4Gy0lwYdNhVuKMDX3xjSYbZOVmSs8ZMNj67A73KURTZfmlx2rpAUWZuWI8sg76Y3wVIeAYCO1mBhcbRV64pasePgHOAtsGiChZ2z2RwHD-Tu0T-r_TkNF-80iG6zsQ4EV4vpMNdf1NwnEE_9SrIa9mR6sWoE7uC_3Zge90rpWrUOmH-tmvlFSj-Vf22azEgyniuuRm37OE6mJ8zLeoj30HIFoZIh7EHRP7r4hvmSwb21SiWM4pnvHBWNLWC2E0OmnETN7Ms54'
+
+    function createTeam (event){
+        event.preventDefault();
+        const formData = {
+            name: document.getElementById("name").value,
+            description: document.getElementById("desc").value
+        }
+        fetch('http://104.131.85.93/api/v1/super/teams/create', {
+        method: 'POST', 
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            'Authorization': `Bearer ${TOKEN}`,
+        },
+        body: JSON.stringify(formData)
+        }).then(response => response.json())
+        .then(json => {
+        const dataArr = [];
+        dataArr.push(json);
+        console.log(dataArr);
+        });
+    }
+
+    
+
+    // function createTeam (e){
+    // document.getElementById("submit").addEventListener("click", function(e){
+    //     const formData = {
+    //         //id: document.getElementById("team-index").value,
+    //         name: document.getElementById("team-name").value,
+    //         description: document.getElementById("team-desc").value
+    //     }
+    //     // console.log();
+    //     //return
+    //     fetch('http://104.131.85.93/api/v1/super/teams/create', {
+    //     method: 'POST', 
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //         Accept: "application/json",
+    //         'Authorization': `Bearer ${TOKEN}`,
+    //     },
+    //     body: JSON.stringify(formData)
+    //     }).then(response => response.json())
+    //     .then(json => console.log(json));            
+    //     // console.log(formData);
+    //     //localStorage.setItem("user", JSON.stringify(formData));        
+    // });
+    // } 
+</script>
+</html>
